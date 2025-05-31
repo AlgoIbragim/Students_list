@@ -1,0 +1,255 @@
+/* student_info.css - Super Flashy and Neon-Animated Student Profile Edit Form */
+
+/* Color & Font Variables */
+:root {
+    --bg-start: #1a2a6c;
+    --bg-mid: #b21f1f;
+    --bg-end: #fdbb2d;
+    --neon-red: #ff073a;
+    --neon-green: #0aff99;
+    --neon-blue: #00e7ff;
+    --neon-yellow: #f0ff33;
+    --text-light: #f4f4f4;
+    --accent-color: #fffa65;
+    --font-main: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    --font-mono: 'Courier New', Courier, monospace;
+}
+
+/* Global Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Body Background Animation */
+body {
+    font-family: var(--font-main);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    background: linear-gradient(60deg, var(--bg-start), var(--bg-mid), var(--bg-end));
+    background-size: 300% 300%;
+    animation: gradientMove 15s ease infinite;
+    color: var(--text-light);
+    padding: 2rem;
+}
+
+@keyframes gradientMove {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+/* Heading Animation */
+h1 {
+    font-size: 2.8rem;
+    text-transform: uppercase;
+    letter-spacing: 0.2rem;
+    margin-bottom: 2rem;
+    color: var(--accent-color);
+    text-shadow: 0 0 5px var(--neon-red), 0 0 10px var(--neon-green), 0 0 20px var(--neon-blue);
+    animation: neonGlow 2.5s ease-in-out infinite alternate;
+}
+
+@keyframes neonGlow {
+    from {
+        text-shadow: 0 0 5px var(--neon-red), 0 0 10px var(--neon-green), 0 0 20px var(--neon-blue);
+    }
+    to {
+        text-shadow: 0 0 20px var(--neon-red), 0 0 30px var(--neon-green), 0 0 40px var(--neon-blue);
+    }
+}
+
+/* Form Container */
+form {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 2rem;
+    border-radius: 1rem;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.4);
+    width: 90%;
+    max-width: 500px;
+    backdrop-filter: blur(5px);
+    animation: formAppear 1s ease-out;
+}
+
+@keyframes formAppear {
+    from { opacity: 0; transform: translateY(-20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Form Fields */
+form p {
+    margin-bottom: 1.2rem;
+    position: relative;
+}
+
+form label {
+    display: block;
+    margin-bottom: 0.3rem;
+    font-size: 1rem;
+    color: var(--neon-yellow);
+    letter-spacing: 0.05rem;
+    text-transform: uppercase;
+    text-shadow: 0 0 3px var(--neon-yellow);
+}
+
+form input[type="text"],
+form input[type="email"],
+form input[type="number"],
+form select,
+form textarea {
+    width: 100%;
+    padding: 0.8rem;
+    font-size: 1rem;
+    font-family: var(--font-mono);
+    border: 2px solid var(--neon-blue);
+    border-radius: 0.5rem;
+    background: rgba(0, 0, 0, 0.4);
+    color: var(--text-light);
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+form input:focus,
+form textarea:focus,
+form select:focus {
+    outline: none;
+    border-color: var(--neon-green);
+    box-shadow: 0 0 10px var(--neon-green), 0 0 20px var(--neon-blue);
+}
+
+form textarea {
+    resize: vertical;
+    min-height: 100px;
+}
+
+/* Submit Button */
+button[type="submit"] {
+    display: block;
+    margin: 2rem auto 0;
+    padding: 0.8rem 2rem;
+    font-size: 1.1rem;
+    font-family: var(--font-main);
+    text-transform: uppercase;
+    letter-spacing: 0.1rem;
+    color: var(--text-light);
+    background: linear-gradient(45deg, var(--neon-red), var(--neon-blue));
+    border: none;
+    border-radius: 2rem;
+    box-shadow: 0 0 5px var(--neon-red), 0 0 10px var(--neon-blue), 0 0 15px var(--neon-green);
+    cursor: pointer;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+button:hover {
+    transform: scale(1.1);
+    box-shadow: 0 0 10px var(--neon-red), 0 0 20px var(--neon-blue), 0 0 30px var(--neon-green);
+}
+
+/* Link Styles (if any) */
+a {
+    color: var(--neon-red);
+    text-decoration: none;
+    position: relative;
+    transition: color 0.3s ease;
+}
+
+a:hover {
+    color: var(--neon-green);
+}
+
+a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: -2px;
+    left: 50%;
+    background: var(--neon-yellow);
+    transition: width 0.3s ease, left 0.3s ease;
+}
+
+a:hover::after {
+    width: 100%;
+    left: 0;
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+    form {
+        padding: 1.5rem;
+        width: 100%;
+    }
+    h1 {
+        font-size: 2.2rem;
+    }
+}
+
+/* Scrollbar Neon Style */
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background: rgba(0, 0, 0, 0.3);
+    border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--neon-blue);
+    border-radius: 5px;
+    border: 2px solid rgba(0, 0, 0, 0);
+    background-clip: padding-box;
+    transition: background 0.3s ease;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--neon-red);
+}
+
+/* Extra Animations */
+input[type="text"]::placeholder,
+input[type="email"]::placeholder,
+input[type="number"]::placeholder,
+textarea::placeholder {
+    color: rgba(244, 244, 244, 0.6);
+    font-style: italic;
+    transition: color 0.3s ease;
+}
+
+input:focus::placeholder,
+textarea:focus::placeholder {
+    color: transparent;
+}
+
+
+/* ===== ICON BUTTONS ===== */
+.icon-btn {
+    display: inline-block;
+    font-size: 1.5rem;
+    text-decoration: none;
+    margin: 0 0.5rem;
+    transition: transform 0.2s ease;
+  }
+  .icon-btn:hover {
+    transform: scale(1.2);
+  }
+  
+  /* Кнопка удаления (корзина) */
+  .delete-btn {
+    color: var(--neon-red, #ff073a);
+  }
+  
+  /* Кнопка добавления */
+  .add-btn {
+    color: var(--neon-green, #0aff99);
+  }
+  
+  /* Контейнер для кнопки «Добавить» */
+  .add-container {
+    text-align: center;
+    margin-top: 1.5rem;
+  }
+  

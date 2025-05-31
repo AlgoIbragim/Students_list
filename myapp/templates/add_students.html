@@ -1,0 +1,17 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Добавить студента</title>
+    <link rel="stylesheet" href="{% static 'css/student_info.css' %}">
+</head>
+<body>
+    <h1 style="text-align:center;">Добавить нового студента</h1>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Создать</button>
+    </form>
+</body>
+</html>

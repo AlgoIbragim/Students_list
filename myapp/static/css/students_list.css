@@ -1,0 +1,372 @@
+/* students_list.css - Super Flashy and Cool Styles */
+
+/* Variables for Colors and Fonts */
+:root {
+  --bg-gradient-start: #0f2027;
+  --bg-gradient-mid: #203a43;
+  --bg-gradient-end: #2c5364;
+  --neon-color-1: #ff4d4d;
+  --neon-color-2: #4dff4d;
+  --neon-color-3: #4d4dff;
+  --text-color: #f0f0f0;
+  --accent-color: #ffeb3b;
+  --link-hover-color: #ffffff;
+  --font-main: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  --font-alt: 'Courier New', Courier, monospace;
+}
+
+/* Global Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Body Styles */
+body {
+  font-family: var(--font-main);
+  background: linear-gradient(45deg, var(--bg-gradient-start), var(--bg-gradient-mid), var(--bg-gradient-end));
+  background-size: 400% 400%;
+  animation: bgGradientAnimation 20s ease infinite;
+  color: var(--text-color);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 2rem;
+}
+
+/* Background Gradient Animation */
+@keyframes bgGradientAnimation {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* Heading Styles */
+h1 {
+  font-size: 3rem;
+  text-transform: uppercase;
+  letter-spacing: 0.3rem;
+  margin-bottom: 2rem;
+  position: relative;
+  color: var(--accent-color);
+  text-shadow:
+      0 0 5px var(--neon-color-1),
+      0 0 10px var(--neon-color-2),
+      0 0 20px var(--neon-color-3);
+  animation: neonPulse 2s ease-in-out infinite alternate;
+}
+
+@keyframes neonPulse {
+  from {
+      text-shadow:
+          0 0 5px var(--neon-color-1),
+          0 0 10px var(--neon-color-2),
+          0 0 20px var(--neon-color-3);
+  }
+  to {
+      text-shadow:
+          0 0 20px var(--neon-color-1),
+          0 0 30px var(--neon-color-2),
+          0 0 40px var(--neon-color-3);
+  }
+}
+
+/* Table Container */
+table {
+  width: 80%;
+  border-collapse: collapse;
+  overflow: hidden;
+  border-radius: 1rem;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+  margin-bottom: 3rem;
+  background: rgba(255, 255, 255, 0.05);
+}
+
+/* Table Head */
+thead tr {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+thead th {
+  padding: 1rem 1.5rem;
+  font-size: 1.25rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1rem;
+  border-bottom: 2px solid var(--accent-color);
+  position: relative;
+  overflow: hidden;
+}
+
+thead th::before {
+  content: '';
+  position: absolute;
+  top: -100%;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(120deg, var(--neon-color-1), var(--neon-color-2), var(--neon-color-3));
+  transition: top 0.6s ease;
+  z-index: -1;
+}
+
+thead th:hover::before {
+  top: 0;
+}
+
+/* Table Body Rows */
+tbody tr {
+  transition: transform 0.3s ease, background 0.3s ease;
+}
+
+tbody tr:nth-child(even) {
+  background: rgba(255, 255, 255, 0.02);
+}
+
+tbody tr:hover {
+  background: rgba(255, 255, 255, 0.1);
+  transform: scale(1.02);
+}
+
+/* Table Data Cells */
+tbody td {
+  padding: 0.8rem 1.2rem;
+  text-align: center;
+  font-size: 1.1rem;
+  color: var(--text-color);
+  border-right: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+tbody td:last-child {
+  border-right: none;
+}
+
+/* Link Styles */
+a {
+  display: inline-block;
+  text-decoration: none;
+  color: var(--neon-color-2);
+  font-weight: bold;
+  position: relative;
+  transition: color 0.3s ease;
+}
+
+a::after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 2px;
+  background: var(--neon-color-2);
+  left: 50%;
+  bottom: -3px;
+  transition: width 0.3s ease, left 0.3s ease;
+}
+
+a:hover {
+  color: var(--link-hover-color);
+}
+
+a:hover::after {
+  width: 100%;
+  left: 0;
+}
+
+/* Scrollbar Styling */
+::-webkit-scrollbar {
+  width: 12px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 6px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--neon-color-1);
+  border-radius: 6px;
+  border: 3px solid rgba(0, 0, 0, 0);
+  background-clip: padding-box;
+  transition: background 0.3s ease;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--neon-color-3);
+}
+
+/* Button Styles (if needed) */
+.btn {
+  display: inline-block;
+  padding: 0.8rem 1.5rem;
+  margin: 0.5rem;
+  font-size: 1rem;
+  font-family: var(--font-alt);
+  text-transform: uppercase;
+  letter-spacing: 0.1rem;
+  color: var(--text-color);
+  background: linear-gradient(45deg, var(--neon-color-1), var(--neon-color-3));
+  border: none;
+  border-radius: 2rem;
+  cursor: pointer;
+  box-shadow:
+      0 0 5px var(--neon-color-1),
+      0 0 10px var(--neon-color-2),
+      0 0 15px var(--neon-color-3);
+  transition: transform 0.2s ease;
+}
+
+.btn:hover {
+  transform: scale(1.1);
+}
+
+/* Responsive Typography */
+@media (max-width: 768px) {
+  body {
+      padding: 1rem;
+  }
+  h1 {
+      font-size: 2.5rem;
+  }
+  table {
+      width: 100%;
+  }
+  thead th,
+  tbody td {
+      padding: 0.6rem;
+      font-size: 1rem;
+  }
+}
+
+/* Fancy Animated Underlines */
+.fancy-underline {
+  position: relative;
+  color: var(--accent-color);
+  padding-bottom: 0.2rem;
+}
+
+.fancy-underline::before {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 3px;
+  bottom: 0;
+  left: -100%;
+  background: linear-gradient(90deg, var(--neon-color-1), var(--neon-color-2), var(--neon-color-3));
+  animation: underlineSlide 3s ease-in-out infinite;
+}
+
+@keyframes underlineSlide {
+  0% { left: -100%; }
+  50% { left: 0%; }
+  100% { left: 100%; }
+}
+
+/* Footer Styles (optional) */
+footer {
+  margin-top: auto;
+  padding: 1rem;
+  font-size: 0.9rem;
+  text-align: center;
+  color: rgba(255, 255, 255, 0.7);
+  animation: fadeInFooter 2s ease forwards;
+  opacity: 0;
+}
+
+@keyframes fadeInFooter {
+  to { opacity: 1; }
+}
+
+/* Extra Neon Glows for Table Headers */
+thead th {
+  animation: glowHeader 5s ease-in-out infinite;
+}
+
+@keyframes glowHeader {
+  0% { text-shadow: 0 0 5px var(--neon-color-1); }
+  33% { text-shadow: 0 0 10px var(--neon-color-2); }
+  66% { text-shadow: 0 0 15px var(--neon-color-3); }
+  100% { text-shadow: 0 0 5px var(--neon-color-1); }
+}
+
+/* ==== ИКОНКИ УДАЛЕНИЯ И ДОБАВЛЕНИЯ ==== */
+
+/* Обёртка для иконки в ячейке */
+td .icon-btn {
+  display: inline-block;
+  width: 24px;
+  height: 24px;
+  margin: 0 auto;
+  cursor: pointer;
+  background-size: contain;
+  background-repeat: no-repeat;
+  opacity: 0.8;
+  transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+td .icon-btn:hover {
+  opacity: 1;
+  transform: scale(1.1);
+}
+
+/* Иконка корзины (удалить) */
+.icon-delete {
+  background-image: url("{% static 'icons/trash.svg' %}");
+}
+
+/* Иконка добавления (плюс) */
+.add-student-btn {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  width: 48px;
+  height: 48px;
+  background-image: url("{% static 'icons/plus-circle.svg' %}");
+  background-size: contain;
+  background-repeat: no-repeat;
+  cursor: pointer;
+  opacity: 0.9;
+  transition: opacity 0.2s ease, transform 0.2s ease;
+  z-index: 1000;
+}
+
+.add-student-btn:hover {
+  opacity: 1;
+  transform: scale(1.1);
+}
+
+/* ==== ICON‑BUTTON CORE ==== */
+.icon-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  margin: 0 4px;
+  cursor: pointer;
+  color: var(--neon-color-1);
+  font-size: 1.4rem;
+  transition: color 0.2s ease, transform 0.2s ease;
+}
+
+.icon-btn:hover {
+  transform: scale(1.2);
+  color: var(--neon-color-2);
+}
+
+/* ==== ДЕЙСТВИЯ ==== */
+.delete-btn { 
+  /* можно переопределить цвет */
+  color: #ff4d4d;
+}
+
+.add-btn {
+  color: #4dff4d;
+}
+
+/* ==== ПЛАВ-ФИКС КНОПКА ==== */
+.add-container {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  z-index: 1000;
+}
